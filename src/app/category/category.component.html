@@ -5,13 +5,17 @@
     <mat-card-header>
       <mat-card-title>Gerenciar categorias</mat-card-title>
     </mat-card-header>
+
     <mat-card-content>
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    </mat-card-content>
+
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 w-100">
 
         <!-- Position Column -->
         <ng-container matColumnDef="id">
           <th mat-header-cell *matHeaderCellDef> Id. </th>
-          <td mat-cell *matCellDef="let element; let i = index"> {{i}} </td>
+          <td mat-cell *matCellDef="let element; let i = index"> {{i + 1}} </td>
         </ng-container>
 
         <!-- Name Column -->
@@ -21,30 +25,25 @@
         </ng-container>
 
         <!-- Weight Column -->
-        <ng-container matColumnDef="actions">
+        <matColumnDef matColumnDef="actions">
           <th mat-header-cell *matHeaderCellDef> Ações </th>
           <td mat-cell *matCellDef="let element">
-            <button (click)="editCategory(element)">Editar</button>
-            <button (click)="deleteCategory(element)" >Apagar</button>
+            <button (click)="editCategory(element)" mat-raised-button color="accent" class="mr-10">Editar</button>
+            <button (click)="deleteCategory(element)" mat-raised-button color="warn" class="mr-10">Apagar</button>
 
           </td>
-        </ng-container>
-
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="symbol">
-          <th mat-header-cell *matHeaderCellDef> Symbol </th>
-          <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-        </ng-container>
+        </matColumnDef>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
 
-
-    </mat-card-content>
-
+    <mat-card-actions>
+      <a mat-raised-button color="warn" [routerLink]="['/']">Home</a>
+      <a mat-raised-button color="primary" (click)="createNewCategory()">Criar nova categoria</a>
+    </mat-card-actions>
 
   </mat-card>
 
 
-</div>>
+</div>

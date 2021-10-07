@@ -12,15 +12,23 @@
         <mat-list-item (click)="sidenav.toggle()">
          <mat-icon>home</mat-icon>
          <span class="mg-15">
-            <a href="/">Home </a>
+            <a [routerLink]="['/']">Home </a>
           </span>
         </mat-list-item>
+
+        <mat-divider></mat-divider>
+
+        <mat-list-item (click)="sidenav.toggle()">
+          <mat-icon>assignment</mat-icon>
+          <span class="mg-15">
+             <a [routerLink]="['/categoria']">Categoria </a>
+           </span>
+         </mat-list-item>
       </mat-list>
 
     </mat-sidenav>
 
     <mat-sidenav-content>
-      <h1>Curso angular</h1>
 
       <router-outlet></router-outlet>
     </mat-sidenav-content>
